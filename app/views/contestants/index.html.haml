@@ -1,0 +1,12 @@
+-if current_admin
+  %h1 Contestants
+  %table
+    %tr
+      %th Name
+      %th Email Address
+      %th Twitter Handle
+    - @contestants.each do |c|
+      %tr
+        %td= c.name
+        %td= c.email
+        %td= c.twitter_handle
