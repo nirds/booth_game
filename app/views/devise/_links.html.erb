@@ -1,5 +1,0 @@
-<%=
-  link_to_if(!current_admin, 'sign in', { controller: 'devise/sessions', action: 'new' }) do
-    link_to('log out', { controller: 'devise/sessions', action: 'destroy' }, { method: 'delete' })
-  end
-%>
