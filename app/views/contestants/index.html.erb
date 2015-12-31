@@ -1,0 +1,15 @@
+<h1>Contestants</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Twitter Handle</th>
+  </tr>
+  <% @contestants.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><%= c.email %></td>
+      <td><%= c.twitter_handle %></td>
+    </tr>
+  <%end%>
+</table>
