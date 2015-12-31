@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'contestants#index'
-
+  devise_for :admins
   resources :contestants
+  root to: 'static_pages#home'
 end
