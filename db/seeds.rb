@@ -5,3 +5,5 @@
   c.twitter_handle = "tweeter#{n}"
   c.save!
 end
+
+Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
