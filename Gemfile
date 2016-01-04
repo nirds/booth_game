@@ -13,4 +13,21 @@ gem 'devise'
 gem 'haml'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+
+group :development do
+  gem 'spring'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
+  gem 'guard'
+  gem 'pry-rails'
+end

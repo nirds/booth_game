@@ -9,7 +9,8 @@ class ContestantsController < ApplicationController
       flash[:success] = "Good Luck!"
       redirect_to new_contestant_path
     else
-      flash[:notices] = "We couldn't enter you, try again!"
+      flash[:notice] = "We couldn't register you, try again!"
+      flash[:errors] = @contestant.errors.full_messages
       redirect_to new_contestant_path
     end
   end
