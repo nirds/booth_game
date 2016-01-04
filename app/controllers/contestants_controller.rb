@@ -7,6 +7,7 @@ class ContestantsController < ApplicationController
     @contestant = Contestant.new(contestant_params)
     if @contestant.save
       flash[:success] = "Good Luck!"
+      Ticket.create(contestant_id: @contestant.id)
       redirect_to new_contestant_path
     else
       flash[:notice] = "We couldn't register you, try again!"
