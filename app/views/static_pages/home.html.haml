@@ -1,5 +1,6 @@
 %h1 Set us up the booth
 -if current_admin
   .button= link_to('view contestants', { controller: 'contestants', action: 'index' })
+  .button= button_to('drawing', { controller: 'tickets', action: 'drawing' })
 .button= link_to('enter', { controller: 'contestants', action: 'new' })
 = render 'devise/links'

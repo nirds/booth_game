@@ -8,8 +8,13 @@ RSpec.describe ContestantsController, type: :controller do
                         email: Faker::Internet.email,
                         twitter_handle: Faker::Hacker.noun }
       end
+
       it 'creates a contestant' do
         expect{ post :create, contestant: @good_hash }.to change{Contestant.count}.by(1)
+      end
+
+      it 'creates a contestant with a ticket' do
+        expect{ post :create, contestant: @good_hash }.to change{Ticket.count}.by(1)
       end
 
       it 'responds with a success flash' do
@@ -27,6 +32,10 @@ RSpec.describe ContestantsController, type: :controller do
 
       it 'does not create a contestant' do
         expect{ post :create, contestant: @bad_hash }.to change{Contestant.count}.by(0)
+      end
+
+      it 'does not create a ticket' do
+        expect{ post :create, contestant: @bad_hash }.to change{Ticket.count}.by(0)
       end
 
       it 'responds with an notice flash' do
