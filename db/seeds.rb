@@ -8,4 +8,5 @@
   Ticket.create(contestant_id: c.id)
 end
 
+
 Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

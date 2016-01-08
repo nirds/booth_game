@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104203116) do
+ActiveRecord::Schema.define(version: 20160108012443) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20160104203116) do
     t.string   "email"
     t.string   "twitter_handle"
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "retweet_count",  default: 0
   end
 
   create_table "tickets", force: true do |t|
