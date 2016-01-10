@@ -1,13 +1,17 @@
-class ContactController < ApplicationController
+class ContactsController < ApplicationController
   def new
-    @contact = contact.new
+    @contact = Contact.new
   end
 
   def create
-    @contact = contact.new(contact_params)
+    @contact = Contact.new(contact_params)
     if @contact.save
-      flash[:success] = "Tweet about us to be entered into the raffle. Good Luck!"
-      redirect_to new_contact_path
+      if Game.last && !Game.last.ended_at
+        redirect_to game_path(Game.last)
+      else
+        flash[:success] = "We'll let you know when we have our next game!"
+        redirect_to new_contact_path
+      end
     else
       flash[:notice] = "We couldn't register you, try again!"
       flash[:errors] = @contact.errors.full_messages
@@ -16,7 +20,7 @@ class ContactController < ApplicationController
   end
 
   def index
-    @contacts = contact.all
+    @contacts = Contact.all
   end
 
   private

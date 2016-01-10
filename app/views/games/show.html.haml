@@ -1,0 +1,10 @@
+-if current_admin
+  = render 'devise/links'
+-else
+  %h1 The Game Is On!
+  %p= "Tweet ##{@game.hash_tag} @#{@game.twitter_handle} for a chance to win!"
+
+%h2 Who's playing
+%ul
+  -@contacts.each do |c|
+    %li= c.twitter_handle

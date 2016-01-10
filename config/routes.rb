@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins
-  resources :contestants
+  resources :contacts, :games
 
   post 'tickets/drawing' => 'tickets#drawing'
 

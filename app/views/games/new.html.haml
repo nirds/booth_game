@@ -1,0 +1,9 @@
+.form
+  = form_for @game do |f|
+    = f.label :twitter_handle
+    = f.text_field :twitter_handle
+    %br
+    = f.label :hash_tag
+    = f.text_field :hash_tag
+    %br
+    = f.submit

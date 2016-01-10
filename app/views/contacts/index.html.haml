@@ -1,14 +1,12 @@
 -if current_admin
-  %h1 Contestants
+  %h1 Contacts
   %table
     %tr
       %th Name
       %th Email Address
       %th Twitter Handle
-      %th Number of Tickets
-    - @contestants.each do |c|
+    - @contacts.each do |c|
       %tr
         %td= c.name
         %td= c.email
         %td= c.twitter_handle
-        %td= c.tickets.count
