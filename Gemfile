@@ -25,6 +25,8 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development, :test do
