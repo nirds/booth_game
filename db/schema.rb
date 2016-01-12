@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104203116) do
+ActiveRecord::Schema.define(version: 20160110081356) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160104203116) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-  create_table "contestants", force: true do |t|
+  create_table "contacts", force: true do |t|
     t.string   "email"
     t.string   "twitter_handle"
     t.string   "name"
@@ -39,10 +39,32 @@ ActiveRecord::Schema.define(version: 20160104203116) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "tickets", force: true do |t|
-    t.integer  "contestant_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table "game_contestants", force: true do |t|
+    t.integer "game_id"
+    t.boolean "is_drawing_winner"
+    t.integer "retweet_count"
+    t.integer "contact_id"
   end
+
+  add_index "game_contestants", ["contact_id"], name: "index_game_contestants_on_contact_id"
+  add_index "game_contestants", ["game_id"], name: "index_game_contestants_on_game_id"
+
+  create_table "games", force: true do |t|
+    t.string   "twitter_handle"
+    t.string   "hash_tag"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.date     "ended_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.integer  "game_contestant_id"
+    t.integer  "game_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "tickets", ["game_contestant_id"], name: "index_tickets_on_game_contestant_id"
+  add_index "tickets", ["game_id"], name: "index_tickets_on_game_id"
 
 end

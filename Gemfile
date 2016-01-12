@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'haml'
+gem 'twitter'
+gem 'figaro'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -23,6 +25,8 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development, :test do
