@@ -42,8 +42,9 @@ class GamesController < ApplicationController
     @game.update_score
     winner_ids = GameContestant.where(game: @game, is_drawing_winner: true).map { |c| c.contact_id }
     @winners = Contact.where(id: winner_ids)
-    most_retweeted_ids = @game.get_most_retweeted.map { |c| c.contact_id }
-    @most_retweeted = Contact.where(id: most_retweeted_ids)
+    most_retweeted, everyone = @game.get_most_retweeted
+    mrt_ids = most_retweeted.map { |c| c.contact_id }
+    @most_retweeted = Contact.where(id: mrt_ids)
     @game.update_attributes(ended_at: Date.today)
   end
 
