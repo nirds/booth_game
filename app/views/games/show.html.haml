@@ -1,8 +1,16 @@
 -if current_admin
   = render 'devise/links'
+  .button= link_to('update scores', update_scores_path(id: @game.id))
+  .button= link_to('draw a winner', draw_winner_path(id: @game.id))
+  .button= link_to('end game', end_game_path(id: @game.id))
 -else
   %h1 The Game Is On!
   %p= "Tweet ##{@game.hash_tag} @#{@game.twitter_handle} for a chance to win!"
+
+%h2 Most Retweeted
+%ul
+  -@most_retweeted.each do |c|
+    %li= c.twitter_handle
 
 %h2 Who's playing
 %ul

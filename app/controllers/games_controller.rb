@@ -9,20 +9,47 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game.id)
     else
-      flash[:notice] = "We couldn't create a game, try again!"
       flash[:errors] = @game.errors.full_messages
       redirect_to root_path
     end
   end
 
   def index
-    @game_contestants = GameContestant.all
+    @games = Game.all
   end
 
   def show
     @game = get_game
-    contestant_ids = get_active_game_contestant_ids
-    @contacts = Contact.where(id: contestant_ids )
+    @most_retweeted = []
+    @contacts = []
+    if GameContestant.find_by(game: @game)
+      mrt, all_contestants = @game.get_most_retweeted
+      @most_retweeted = Contact.where(id: mrt.map { |c| c.contact_id } )
+      @contacts = Contact.where(id: get_active_game_contestant_ids )
+    end
+  end
+
+  def draw_winner
+    @game = get_game
+    valid_game_contestants = GameContestant.where(is_drawing_winner: false)
+    tickets = Ticket.where(game_id: @game.id, game_contestant: valid_game_contestants)
+
+    @winner = @game.select_winner(tickets)
+  end
+
+  def end_game
+    @game = get_game
+    @game.update_score
+    winner_ids = GameContestant.where(game: @game, is_drawing_winner: true).map { |c| c.contact_id }
+    @winners = Contact.where(id: winner_ids)
+    most_retweeted_ids = @game.get_most_retweeted.map { |c| c.contact_id }
+    @most_retweeted = Contact.where(id: most_retweeted_ids)
+    @game.update_attributes(ended_at: Date.today)
+  end
+
+  def update_scores
+    get_game.update_score
+    redirect_to game_path(Game.last)
   end
 
   private
@@ -32,8 +59,7 @@ class GamesController < ApplicationController
   end
 
   def get_game
-    Game.first
-    # Game.find_by(id: params[:id])
+    Game.find_by(id: params[:id])
   end
 
   def get_active_game_contestant_ids

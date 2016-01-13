@@ -4,8 +4,8 @@ class CreateGameContestant < ActiveRecord::Migration
       t.belongs_to :contestant, required: true, index: true
       t.belongs_to :game, required: true, index: true
 
-      t.boolean :is_drawing_winner
-      t.integer :retweet_count
+      t.boolean :is_drawing_winner, default: false
+      t.integer :retweet_count, default: 0
     end
   end
 end

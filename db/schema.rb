@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160110081356) do
 
   create_table "game_contestants", force: true do |t|
     t.integer "game_id"
-    t.boolean "is_drawing_winner"
-    t.integer "retweet_count"
+    t.boolean "is_drawing_winner", default: false
+    t.integer "retweet_count",     default: 0
     t.integer "contact_id"
   end
 
