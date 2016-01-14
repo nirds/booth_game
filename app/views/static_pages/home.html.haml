@@ -2,18 +2,28 @@
   -if current_admin
     .centered
       %h1 Set us up the booth
-    .btn.btn-primary.col-xs-6
+    .col-xs-2
+    .btn.btn-primary.col-xs-3
       = link_to('view all contacts', { controller: 'contacts', action: 'index' })
-    .btn.btn-primary.col-xs-6
+    .col-xs-2
+    .btn.btn-primary.col-xs-3
       = link_to('start new game', { controller: 'games', action: 'new' })
+    .col-xs-2
+    -if @game
+      .col-xs-12
+        .row
+          .col-xs-2
+          .btn.btn-primary.col-xs-8
+            = link_to('see the current game', game_path(@game))
+          .col-xs-2
     = render 'devise/links'
   -else
     %h1 Welcome to NIRDgossip!
     -if @game
-      .btn.btn-primary.col-xs-5
+      .btn.btn-primary.col-xs-12
         = link_to('join the game', { controller: 'contacts', action: 'new' })
-      .col-xs-1
-      .btn.btn-primary.col-xs-5
-        = link_to('see the current game', game_path(@game))
+      -if @game
+        .btn.btn-primary.col-xs-12
+          = link_to('see the current game', game_path(@game))
     -else
       %p We don't have a game running currently. Catch us at the next con!
