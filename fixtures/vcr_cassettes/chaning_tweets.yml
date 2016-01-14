@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://STs10fXvJ4i1rqTSQngkqeeWS:AFBqL75BCMPgDHDR4LvaI19YIAD2nfmFVOfObQi1yHmiwR5103@api.twitter.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Accept:
+      - '*/*'
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '152'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 10 Jan 2016 18:31:37 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sun, 10 Jan 2016 18:31:37 GMT
+      Ml:
+      - S
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A145245069755141444; Domain=.twitter.com; Path=/; Expires=Tue,
+        09-Jan-2018 18:31:37 UTC
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - 9a984b1a95b0adb1f530b4841c961183
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Response-Time:
+      - '26'
+      X-Transaction:
+      - b8c3a2f63cc60862
+      X-Tsa-Request-Body-Time:
+      - '79'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"bearer","access_token":"AAAAAAAAAAAAAAAAAAAAAPemjgAAAAAAGF80arRKZBCUyLQn6co1Ye5KOyY%3DiStHvvbhr8sb789M4GRE5HK061tSkgafqqM5mWHaZpDrKsDs76"}'
+    http_version: 
+  recorded_at: Sun, 10 Jan 2016 18:31:37 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/search/tweets.json?count=100&q=@chaningtatum%20%23lipsyncbattle%20-rt&result_type=recent
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - Bearer AAAAAAAAAAAAAAAAAAAAAPemjgAAAAAAGF80arRKZBCUyLQn6co1Ye5KOyY%3DiStHvvbhr8sb789M4GRE5HK061tSkgafqqM5mWHaZpDrKsDs76
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '233'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 10 Jan 2016 18:31:37 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sun, 10 Jan 2016 18:31:37 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A145245069775309561; Domain=.twitter.com; Path=/; Expires=Tue,
+        09-Jan-2018 18:31:37 UTC
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - 87d311aedd46ef071e862ed464598799
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '450'
+      X-Rate-Limit-Remaining:
+      - '449'
+      X-Rate-Limit-Reset:
+      - '1452451597'
+      X-Response-Time:
+      - '19'
+      X-Transaction:
+      - a873f87e9cfa3c30
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"statuses":[],"search_metadata":{"completed_in":0.008,"max_id":686253999008288768,"max_id_str":"686253999008288768","query":"%40chaningtatum+%23lipsyncbattle+-rt","refresh_url":"?since_id=686253999008288768&q=%40chaningtatum%20%23lipsyncbattle%20-rt&result_type=recent&include_entities=1","count":100,"since_id":0,"since_id_str":"0"}}'
+    http_version: 
+  recorded_at: Sun, 10 Jan 2016 18:31:37 GMT
+recorded_with: VCR 3.0.1
