@@ -1,0 +1,9 @@
+%h1 Game over man!
+.event_tagline= "##{@game.hash_tag}"
+%h2 Drawing winners
+-@winners.each do |w|
+  = "Name: #{w.name}, Twitter Handle: #{w.twitter_handle}"
+  %br
+%h2 Most Retweeted
+-@most_retweeted.each do |mrt|
+  = "Name: #{mrt.name}, Twitter Handle: #{mrt.twitter_handle}"
