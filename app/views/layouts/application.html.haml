@@ -6,10 +6,12 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
   %body
-    .messages
-      %p.notice= notice
-      %p.alert= alert
-    -flash.each do |name, msg|
-      = content_tag :div, msg, class: name, id:"headerbar"
-    .row
-      =yield
+    .contianer
+      .messages
+        -flash.each do |name, msg|
+          = content_tag :div, msg, class: name, id:"headerbar"
+      .row
+        .side-bar.col-sm-2
+        .col-xs-12.col-sm-8
+          =yield
+        .side-bar.col-sm-2
