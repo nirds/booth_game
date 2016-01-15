@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
   before_action :authenticate_admin!
-  before_action :get_prize, only: [:edit, :update]
+  before_action :get_prize, only: [:edit, :update, :destroy]
 
   def new
     @game = Game.find_by(id: params[:game_id])
@@ -28,6 +28,16 @@ class PrizesController < ApplicationController
 
   def index
     @prizes = Prize.where(game: Game.last)
+  end
+
+  def destroy
+    if @prize.destroy
+      flash[:success] = "Prize deleted!"
+      redirect_to prizes_path
+    else
+      flash[:errors] = @prize.errors.full_messages
+      redirect_to edit_prize_path(@prize)
+    end
   end
 
   private
