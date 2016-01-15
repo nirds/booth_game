@@ -21,6 +21,20 @@ h1, h2, p {
   text-align: center;
 }
 
+table {
+  border: #dadbdf 2px solid;
+
+  th {
+    background-color: #dadbdf;
+    text-align: center;
+  }
+
+  td {
+    border: #dadbdf 1px solid;
+    text-align: center;
+  }
+}
+
 header {
   background-color: #dadbdf;
   border-radius: 10px;

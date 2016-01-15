@@ -1,6 +1,7 @@
 .row.main
   -if current_admin
-    %h1 Set us up the booth
+    %header.col-xs-12
+      %h1 Set us up the booth
     .col-xs-2
     .btn.btn-primary.col-xs-3
       = link_to('view all contacts', { controller: 'contacts', action: 'index' })
@@ -18,7 +19,8 @@
           .col-xs-2
     .col-xs-8= render 'devise/links'
   -else
-    %h1 Welcome to NIRDgossip!
+    %header.col-xs-12
+      %h1 Welcome to NIRDgossip!
     -if @game
       .btn.btn-primary.col-xs-12
         = link_to('join the game', { controller: 'contacts', action: 'new' })

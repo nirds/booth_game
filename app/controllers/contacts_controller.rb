@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :twitter_handle)
+    params.require(:contact).permit(:name, :email, :twitter_handle, :phone)
   end
 
   def sanitize_fields
