@@ -17,7 +17,9 @@
           .btn.btn-primary.col-xs-8
             = link_to('see the current game', game_path(@game))
           .col-xs-2
-    .col-xs-8= render 'devise/links'
+    .col-xs-12.gutter
+    .col-xs-2
+    .col-xs-10= render 'devise/links'
   -else
     %header.col-xs-12
       %h1 Welcome to NIRDgossip!
