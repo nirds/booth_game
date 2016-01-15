@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
   validates :hash_tag, presence: true
 
   has_many :tickets, dependent: :destroy
+  has_many :prizes, dependent: :destroy
   has_many :game_contestants, dependent: :destroy
   has_many :contacts, through: :game_contestants
 

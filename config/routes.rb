@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins, :controllers => { :registrations => "registrations" }
-  resources :contacts, :games
+  resources :contacts, :games, :prizes
 
   post 'tickets/drawing' => 'tickets#drawing'
   post 'games/:id/update_scores' => 'games#update_scores', as: "update_scores"

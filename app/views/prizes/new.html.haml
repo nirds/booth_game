@@ -1,0 +1,28 @@
+.row.main
+  %header.col-xs-12
+    %h1 Add a new prize
+    %p= "For the ##{@game.hash_tag} game."
+    .col-xs-12.gutter
+  .col-xs-0.col-sm-2
+  .form.col-xs-12.col-sm-8
+    = form_for @prize do |f|
+      .col-xs-12
+        = f.label :image_url
+        = f.text_field :image_url
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.label :description
+        = f.text_field :description
+      %br
+      -if @game
+        = f.hidden_field :game_id, value: @game.id
+      -else
+        .col-xs-12.gutter
+        .col-xs-12
+          = f.label :game_id
+          = f.text_field :game_id
+        %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.submit(class: 'btn btn-primary')

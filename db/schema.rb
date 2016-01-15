@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115194750) do
+ActiveRecord::Schema.define(version: 20160115220105) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20160115194750) do
     t.datetime "updated_at",     null: false
     t.date     "ended_at"
   end
+
+  create_table "prizes", force: true do |t|
+    t.string  "image_url"
+    t.string  "description"
+    t.integer "game_id"
+  end
+
+  add_index "prizes", ["game_id"], name: "index_prizes_on_game_id"
 
   create_table "tickets", force: true do |t|
     t.integer  "game_contestant_id"
