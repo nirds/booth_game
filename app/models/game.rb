@@ -24,7 +24,9 @@ class Game < ActiveRecord::Base
     contestants = GameContestant.where(game_id: id).collect.to_a
     sorted_contestants = contestants.sort_by { |c| c.retweet_count }.reverse
 
-    if sorted_contestants[0].retweet_count > sorted_contestants[1].retweet_count
+    if sorted_contestants[0].retweet_count == 0
+      return [], sorted_contestants
+    elsif !sorted_contestants[1] || sorted_contestants[0].retweet_count > sorted_contestants[1].retweet_count
       return [sorted_contestants.first], sorted_contestants
     else
       max = sorted_contestants[0].retweet_count
