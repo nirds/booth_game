@@ -1,12 +1,44 @@
+body {
+  background-color: #CCC;
+}
+
+.main {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.gutter {
+  height: 1em;
+}
+
 a {
   color: white;
 }
 
-h1 {
+h1, h2, p {
   text-align: center;
 }
 
-.side-bar {
-  background-color: blue;
-  height: 100%;
+header {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+
+  .btn {
+    margin: 1em 0;
+  }
+}
+
+leaderboard, contestants, prizes {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+}
+
+controls {
+  full {
+    margin: 1em 0;
+  }
 }

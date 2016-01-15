@@ -1,7 +1,6 @@
-.row
+.row.main
   -if current_admin
-    .centered
-      %h1 Set us up the booth
+    %h1 Set us up the booth
     .col-xs-2
     .btn.btn-primary.col-xs-3
       = link_to('view all contacts', { controller: 'contacts', action: 'index' })
@@ -12,11 +11,12 @@
     -if @game
       .col-xs-12
         .row
+          .col-xs-12.gutter
           .col-xs-2
           .btn.btn-primary.col-xs-8
             = link_to('see the current game', game_path(@game))
           .col-xs-2
-    = render 'devise/links'
+    .col-xs-8= render 'devise/links'
   -else
     %h1 Welcome to NIRDgossip!
     -if @game
