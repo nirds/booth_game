@@ -8,6 +8,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    sanitize_fields
     if @game.save
       redirect_to game_path(@game.id)
     else
@@ -59,6 +60,11 @@ class GamesController < ApplicationController
   end
 
   private
+
+  def sanitize_fields
+    @game.twitter_handle.delete!('@')
+    @game.hash_tag.delete!('#')
+  end
 
   def game_params
     params.require(:game).permit(:hash_tag, :twitter_handle)

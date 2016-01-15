@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    sanitize_fields
     if @contact.save
       if Game.last && !Game.last.ended_at
         redirect_to game_path(Game.last)
@@ -30,5 +31,9 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:name, :email, :twitter_handle)
+  end
+
+  def sanitize_fields
+    @contact.twitter_handle.delete!('@')
   end
 end
