@@ -27,8 +27,16 @@ class Game < ActiveRecord::Base
     if sorted_contestants[0].retweet_count == 0
       return []
     elsif !sorted_contestants[1] || sorted_contestants[0].retweet_count > sorted_contestants[1].retweet_count
-      return [{ contact: Contact.find_by(id: sorted_contestants.first.contact_id),
-                                        retweet_count: sorted_contestants.first.retweet_count }]
+      mrt = [{  contact: Contact.find_by(id: sorted_contestants.first.contact_id),
+                retweet_count: sorted_contestants.first.retweet_count }]
+      (1..2).each do |i|
+        contestant = sorted_contestants[i]
+        if contestant
+          mrt << {  contact: Contact.find_by(id: contestant.contact_id),
+                    retweet_count: contestant.retweet_count }
+        end
+      end
+      return mrt
     else
       max = sorted_contestants[0].retweet_count
       mrt = []
