@@ -7,15 +7,13 @@ development:
   <<: *default
   database: booth_dev
 
-test: &test
+test:
   <<: *default
   database: booth_test
+  password:
 
 production:
   <<: *default
   database: booth_prod
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-
-cucumber:
-  <<: *test
