@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:show]
+
   def new
     @game = Game.new
   end
