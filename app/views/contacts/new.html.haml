@@ -1,15 +1,29 @@
-.form
-  = form_for @contact do |f|
-    = f.label :name
-    = f.text_field :name
-    %br
-    = f.label :email
-    = f.text_field :email
-    %br
-    = f.label :twitter_handle
-    = f.text_field :twitter_handle
-    %br
-    = f.label :phone
-    = f.text_field :phone
-    %br
-    = f.submit
+.row.main
+  %header.col-xs-12
+    %h1 Sign up
+    %p Share your information with us then tweet to win!
+  .col-xs-0.col-sm-2
+  .form.col-xs-12.col-sm-8
+    = form_for @contact do |f|
+      .col-xs-12
+        = f.label :name
+        = f.text_field :name
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.label :email
+        = f.text_field :email
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.label :twitter_handle
+        = f.text_field :twitter_handle
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.label :phone
+        = f.text_field :phone
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.submit(class: 'btn btn-primary')

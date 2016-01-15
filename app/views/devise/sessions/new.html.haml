@@ -1,0 +1,19 @@
+.row.main
+  %header.col-xs-12
+    %h1 Log in
+    .col-xs-12.gutter
+  .col-xs-0.col-sm-2
+  .form.col-xs-12.col-sm-8
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .col-xs-12
+        = f.label :email
+        = f.email_field :email, autofocus: true
+      .col-xs-12.gutter
+      %br
+      .col-xs-12
+        = f.label :password
+        = f.password_field :password, autocomplete: "off"
+      %br
+      .col-xs-12.gutter
+      .col-xs-12
+        = f.submit('log in', class: 'btn btn-primary')
