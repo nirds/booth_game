@@ -1,18 +1,43 @@
-%h1 The Game Is On!
-%p= "Tweet ##{@game.hash_tag} @#{@game.twitter_handle} for a chance to win!"
-.button= link_to('join the game', { controller: 'contacts', action: 'new' })
+.row.main
+  %header.col-xs-12
+    %h1 The Game Is On!
+    %p= "Tweet ##{@game.hash_tag} @#{@game.twitter_handle} for a chance to win!"
+    .row
+      .col-xs-3
+      = link_to({ controller: 'contacts', action: 'new' }) do
+        .btn.btn-primary.col-xs-6 join the game
+      .col-xs-3
+  .leaderboard.col-xs-12
+    %h2 Most Retweeted
+    -unless @most_retweeted.empty?
+      %ul
+        -@most_retweeted.each do |mrt|
+          %li= "#{mrt[:contact].twitter_handle} (#{mrt[:retweet_count]})"
+    -else
+      %p It looks like no one has been retweeted yet.
 
-%h2 Most Retweeted
-%ul
-  -@most_retweeted.each do |c|
-    %li= c.twitter_handle
+  .contestants.col-xs-5
+    %h2 Who's Playing
+    %ul
+      -@contacts.each do |c|
+        %li= c.twitter_handle
+  .col-xs-1
+  .prizes.col-xs-6
 
-%h2 Who's Playing
-%ul
-  -@contacts.each do |c|
-    %li= c.twitter_handle
--if current_admin
-  .button= link_to('update scores', update_scores_path(id: @game.id))
-  .button= link_to('draw a winner', draw_winner_path(id: @game.id))
-  .button= link_to('end game', end_game_path(id: @game.id))
-  = render 'devise/links'
+  .controls.col-xs-12
+    -if current_admin
+      .row
+        .col-xs-12.gutter
+        = link_to(update_scores_path(id: @game.id), method: :post) do
+          .btn.btn-primary.col-xs-12 update scores
+        .col-xs-12.gutter
+        = link_to(draw_winner_path(id: @game.id)) do
+          .btn.btn-primary.col-xs-12 draw a winner
+        .col-xs-12.gutter
+        = link_to(end_game_path(id: @game.id)) do
+          .btn.btn-primary.col-xs-12 end game
+        .col-xs-12.gutter
+        = link_to(root_path) do
+          .btn.btn-primary.col-xs-12 home
+        .col-xs-12.gutter
+        = render 'devise/links'

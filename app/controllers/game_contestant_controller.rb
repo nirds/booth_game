@@ -1,5 +1,7 @@
 class GameContestantController < ApplicationController
 
+  before_action :authenticate_admin!
+
   def create
     @game_contestant = GameContestant.new(game_contestant_params)
     if @game_contestant.save

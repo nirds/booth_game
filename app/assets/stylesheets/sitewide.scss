@@ -1,0 +1,88 @@
+body {
+  background-color: #CCC;
+}
+
+.main {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.gutter {
+  height: 1em;
+}
+
+a {
+  color: white;
+}
+
+h1, h2, p {
+  text-align: center;
+}
+
+table {
+  border: #dadbdf 2px solid;
+
+  th {
+    background-color: #dadbdf;
+    text-align: center;
+  }
+
+  td {
+    border: #dadbdf 1px solid;
+    text-align: center;
+  }
+}
+
+.messages {
+  #headerbar {
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+
+  background-color: #D32C58;
+  border-radius: 4px;
+}
+
+label {
+  float: left;
+}
+
+input {
+  float: right;
+  border: #dadbdf 1px solid;
+  border-radius: 4px;
+}
+
+header {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+
+  .btn {
+    margin: 1em 0;
+  }
+}
+
+.leaderboard, .contestants, .prizes {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+}
+
+.controls {
+  full {
+    margin: 1em 0;
+  }
+}
+
+ul {
+  padding: 0;
+
+  li {
+    text-align: center;
+    list-style-type: none;
+  }
+}

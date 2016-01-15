@@ -6,7 +6,8 @@ RSpec.describe ContactsController, type: :controller do
       before do
         @good_hash = {  name: Faker::Name.name,
                         email: Faker::Internet.email,
-                        twitter_handle: Faker::Hacker.noun }
+                        twitter_handle: Faker::Hacker.noun,
+                        phone: '123456789' }
       end
 
       it 'creates a contact' do

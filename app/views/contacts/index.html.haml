@@ -1,12 +1,22 @@
--if current_admin
-  %h1 Contacts
-  %table
+.row.main
+  %header.col-xs-12
+    %h1 Contacts
+  .col-sm-1
+  %table.col-xs-12.col-sm-10
     %tr
       %th Name
       %th Email Address
       %th Twitter Handle
+      %th Phone
     - @contacts.each do |c|
       %tr
         %td= c.name
         %td= c.email
         %td= c.twitter_handle
+        %td= c.phone
+  .col-sm-2
+  = link_to(root_path) do
+    .col-xs-12.gutter
+    .col-xs-2
+    .btn.btn-primary.col-xs-8 home
+    .col-xs-2

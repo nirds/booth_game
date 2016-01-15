@@ -19,7 +19,7 @@ module GameUtilities
     end
 
     def find_or_create_contestant(contact_id)
-      contestant = GameContestant.find_by(contact_id: contact_id)
+      contestant = GameContestant.find_by(game_id: @game_id, contact_id: contact_id)
       unless contestant
         contestant = GameContestant.create(game_id: @game_id, contact_id: contact_id)
         award_tickets_for_tweeting(contestant.id)

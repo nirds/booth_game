@@ -1,12 +1,17 @@
 class ContactsController < ApplicationController
+
+  before_action :authenticate_admin!, only: [:index]
+
   def new
     @contact = Contact.new
   end
 
   def create
     @contact = Contact.new(contact_params)
+    sanitize_fields
     if @contact.save
       if Game.last && !Game.last.ended_at
+        flash[:success] = "You're in, now tweet to win!"
         redirect_to game_path(Game.last)
       else
         flash[:success] = "We'll let you know when we have our next game!"
@@ -26,6 +31,10 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :twitter_handle)
+    params.require(:contact).permit(:name, :email, :twitter_handle, :phone)
+  end
+
+  def sanitize_fields
+    @contact.twitter_handle.delete!('@')
   end
 end
