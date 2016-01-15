@@ -19,9 +19,15 @@ class PrizesController < ApplicationController
   end
 
   def edit
+    @game = Game.find_by(id: @prize.game_id)
   end
 
   def update
+    redirect_to prizes_path
+  end
+
+  def index
+    @prizes = Prize.where(game: Game.last)
   end
 
   private
