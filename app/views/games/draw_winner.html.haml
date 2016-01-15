@@ -1,2 +1,11 @@
-%h1 The winner is:
-= "Name: #{@winner.name}, Twitter Handle: #{@winner.twitter_handle}"
+.row.main
+  %header.col-xs-12
+    -if @winner
+      %h1 The winner is:
+      = "Name: #{@winner.name}, Twitter Handle: #{@winner.twitter_handle}"
+    -else
+      %h1 Oops!
+      %p Either everyone's already won something, or you didn't have anyone enter the contest!
+    .row
+  .btn.btn-primary.col-xs-12
+    = link_to('see the current game', game_path(@game))
