@@ -7,10 +7,15 @@
   = csrf_meta_tags
   %body
     .contianer
-      .messages
-        -flash.each do |name, msg|
-          = content_tag :div, msg, class: name, id:"headerbar"
       .row
+        -unless flash.empty?
+          .col-xs-12.gutter
+          .side-bar.col-sm-2
+          .messages.col-xs-8
+            -flash.each do |name, msg|
+              = content_tag :div, msg, class: name, id:"headerbar"
+          .side-bar.col-sm-2
+          .col-xs-12.gutter
         .side-bar.col-sm-2
         .col-xs-12.col-sm-8
           =yield

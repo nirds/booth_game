@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
     sanitize_fields
     if @contact.save
       if Game.last && !Game.last.ended_at
+        flash[:success] = "You're in, now tweet to win!"
         redirect_to game_path(Game.last)
       else
         flash[:success] = "We'll let you know when we have our next game!"

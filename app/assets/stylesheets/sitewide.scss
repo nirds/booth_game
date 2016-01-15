@@ -35,6 +35,17 @@ table {
   }
 }
 
+.messages {
+  #headerbar {
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+
+  background-color: #D32C58;
+  border-radius: 4px;
+}
+
 label {
   float: left;
 }
