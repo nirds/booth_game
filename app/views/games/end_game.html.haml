@@ -18,5 +18,5 @@
     -else
       %br
       %p It looks like nobody played!
-  .btn.btn-primary.col-xs-12
-    = link_to('start new game', { controller: 'games', action: 'new' })
+  = link_to({ controller: 'games', action: 'new' }) do
+    .btn.btn-primary.col-xs-12 start new game

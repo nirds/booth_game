@@ -7,5 +7,5 @@
       %h1 Oops!
       %p Either everyone's already won something, or you didn't have anyone enter the contest!
     .row
-  .btn.btn-primary.col-xs-12
-    = link_to('see the current game', game_path(@game))
+  = link_to(game_path(@game)) do
+    .btn.btn-primary.col-xs-12 current game
