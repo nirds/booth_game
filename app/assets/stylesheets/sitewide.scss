@@ -31,13 +31,13 @@ header {
   }
 }
 
-leaderboard, contestants, prizes {
+.leaderboard, .contestants, .prizes {
   background-color: #dadbdf;
   border-radius: 10px;
   margin: 2em 0;
 }
 
-controls {
+.controls {
   full {
     margin: 1em 0;
   }

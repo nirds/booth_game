@@ -6,21 +6,21 @@
       .col-xs-3
       .btn.btn-primary.col-xs-6= link_to('join the game', { controller: 'contacts', action: 'new' })
       .col-xs-3
-  %leaderboard.col-xs-12
+  .leaderboard.col-xs-12
     %h2 Most Retweeted
     %ul
       -@most_retweeted.each do |c|
         %li= c.twitter_handle
 
-  %contestants.col-xs-5
+  .contestants.col-xs-5
     %h2 Who's Playing
     %ul
       -@contacts.each do |c|
         %li= c.twitter_handle
   .col-xs-1
-  %prizes.col-xs-6
+  .prizes.col-xs-6
 
-  %controls.col-xs-12
+  .controls.col-xs-12
     -if current_admin
       .row
         .col-xs-12.gutter

@@ -1,9 +1,18 @@
-%h1 Game over man!
-.event_tagline= "##{@game.hash_tag}"
-%h2 Drawing winners
--@winners.each do |w|
-  = "Name: #{w.name}, Twitter Handle: #{w.twitter_handle}"
-  %br
-%h2 Most Retweeted
--@most_retweeted.each do |mrt|
-  = "Name: #{mrt.name}, Twitter Handle: #{mrt.twitter_handle}"
+.row.main
+  %header.col-xs-12
+    %h1 Game over man!
+    %p= "##{@game.hash_tag}"
+  .leaderboard.col-xs-12
+    -if @winners
+      %h2 Drawing winners
+      -@winners.each do |w|
+        = "Name: #{w.name}, Twitter Handle: #{w.twitter_handle}"
+        %br
+      %h2 Most Retweeted
+      -@most_retweeted.each do |mrt|
+        = "Name: #{mrt.name}, Twitter Handle: #{mrt.twitter_handle}"
+    -else
+      %br
+      %p It looks like nobody played!
+  .btn.btn-primary.col-xs-12
+    = link_to('start new game', { controller: 'games', action: 'new' })
