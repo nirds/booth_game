@@ -1,0 +1,19 @@
+.row.main
+  %header.col-xs-12
+    %h1 Active Prizes
+  .col-sm-1
+  %table.col-xs-12.col-sm-10
+    %tr
+      %th Image
+      %th Description
+    - @prizes.each do |c|
+      %tr
+        %td
+          %a.prize{href: edit_prize_path(c), style: "background-image: url(#{c.image_url})"}
+        %td= c.description
+  .col-sm-2
+  = link_to(root_path) do
+    .col-xs-12.gutter
+    .col-xs-2
+    .btn.btn-primary.col-xs-8 home
+    .col-xs-2

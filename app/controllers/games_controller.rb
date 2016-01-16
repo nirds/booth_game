@@ -25,6 +25,7 @@ class GamesController < ApplicationController
     @game = get_game
     @most_retweeted = []
     @contacts = []
+    @prize = @game.prizes.sample
     if GameContestant.find_by(game: @game)
       @most_retweeted = @game.get_most_retweeted
       @contacts = Contact.where(id: get_active_game_contestant_ids )

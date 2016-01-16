@@ -1,0 +1,10 @@
+.row.main
+  %header.col-xs-12
+    %h1 Edit prize
+    %p= "For the ##{@game.hash_tag} game."
+    .col-xs-12.gutter
+  .col-xs-0.col-sm-2
+  =render 'form'
+  =link_to
+  = link_to(prize_path(id: @prize.id), method: :delete) do
+    .btn.btn-primary.col-xs-12 delete

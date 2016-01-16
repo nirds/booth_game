@@ -10,7 +10,6 @@ module GameUtilities
       all_tweets.each do |tweet|
         contact = Contact.find_by(twitter_handle: tweet.user.screen_name)
         contestant = find_or_create_contestant(contact.id) if contact
-
         if contestant && tweet.retweet_count > 0
           contestant.update_attributes(retweet_count: tweet.retweet_count)
           award_tickets_for_being_retweeted(contestant.id) if contestant.tickets.count < Ticket.max_ticket_count
@@ -23,8 +22,8 @@ module GameUtilities
       unless contestant
         contestant = GameContestant.create(game_id: @game_id, contact_id: contact_id)
         award_tickets_for_tweeting(contestant.id)
-        return contestant
       end
+      return contestant
     end
 
     def award_tickets_for_tweeting(contestant_id)
