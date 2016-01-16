@@ -40,6 +40,9 @@
     -if current_admin
       .row
         .col-xs-12.gutter
+        = link_to(prizes_path) do
+          .btn.btn-primary.col-xs-12 view prizes
+        .col-xs-12.gutter
         = link_to(new_prize_path(game_id: @game.id)) do
           .btn.btn-primary.col-xs-12 add a prize
         .col-xs-12.gutter
