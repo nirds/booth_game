@@ -86,7 +86,12 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  max-width: 200px;
+  border-radius: 10px;
+}
 
+.description {
+  font-weight: 600;
 }
 
 ul {

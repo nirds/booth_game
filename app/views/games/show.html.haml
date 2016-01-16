@@ -22,7 +22,19 @@
       -@contacts.each do |c|
         %li= c.twitter_handle
   .col-xs-1
-  .prizes.col-xs-6
+  -if @prize
+    .prizes.col-xs-6
+      %h2 Win This!
+      .col-xs-12.gutter
+      .row
+        .col-xs-2
+        .col-xs-8
+          .row
+            .prize.col-xs-12{style: "background-image: url(#{@prize.image_url})"}
+        .col-xs-2
+        .col-xs-12.gutter
+        %p.description.col-xs-12= @prize.description
+      .col-xs-12.gutter
 
   .controls.col-xs-12
     -if current_admin
