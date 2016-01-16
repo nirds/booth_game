@@ -37,8 +37,11 @@ class GamesController < ApplicationController
     valid_game_contestants = GameContestant.where(is_drawing_winner: false)
     tickets = Ticket.where(game_id: @game.id, game_contestant: valid_game_contestants)
 
-
-    @winner = @game.select_winner(tickets) unless tickets.empty?
+    unless tickets.empty? || @game.prizes.active(@game).empty?
+      @prize = @game.prizes.active(@game).sample
+      @prize.update_attributes(won: true)
+      @winner = @game.select_winner(tickets)
+    end
   end
 
   def end_game
