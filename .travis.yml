@@ -1,6 +1,10 @@
 language: ruby
 rvm:
-- 2.0.0
+- 2.2.3
+before_script:
+- cp config/database.yml.example config/database.yml
+- cp config/application.yml.example config/application.yml
+- psql -c 'create database booth_test;' -U postgres
 script:
 - bundle exec rake db:migrate
 - bundle exec rake

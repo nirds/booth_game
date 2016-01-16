@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160116003204) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160116003204) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "contacts", force: true do |t|
     t.string   "email"
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160116003204) do
     t.integer "contact_id"
   end
 
-  add_index "game_contestants", ["contact_id"], name: "index_game_contestants_on_contact_id"
-  add_index "game_contestants", ["game_id"], name: "index_game_contestants_on_game_id"
+  add_index "game_contestants", ["contact_id"], name: "index_game_contestants_on_contact_id", using: :btree
+  add_index "game_contestants", ["game_id"], name: "index_game_contestants_on_game_id", using: :btree
 
   create_table "games", force: true do |t|
     t.string   "twitter_handle"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160116003204) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "tickets", ["game_contestant_id"], name: "index_tickets_on_game_contestant_id"
-  add_index "tickets", ["game_id"], name: "index_tickets_on_game_id"
+  add_index "tickets", ["game_contestant_id"], name: "index_tickets_on_game_contestant_id", using: :btree
+  add_index "tickets", ["game_id"], name: "index_tickets_on_game_id", using: :btree
 
 end
