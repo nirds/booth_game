@@ -5,3 +5,9 @@
     .col-xs-12.gutter
   .col-xs-0.col-sm-2
   =render 'form'
+  .col-xs-12.gutter
+  = link_to(game_path(@game)) do
+    .btn.btn-primary.col-xs-12 go to game
+  .col-xs-12.gutter
+  = link_to(prizes_path(game_id: @game.id)) do
+    .btn.btn-primary.col-xs-12 view prizes
