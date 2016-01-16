@@ -1,24 +1,34 @@
-body {
-  background-color: #CCC;
-}
-
-.main {
-  background-color: white;
-  border-radius: 5px;
-  margin-top: 1em;
-  padding: 1em;
-}
-
-.gutter {
-  height: 1em;
-}
 
 a {
   color: white;
 }
 
+body {
+  background-color: #CCC;
+}
+
 h1, h2, p {
   text-align: center;
+}
+
+header {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+
+  .btn {
+    margin: 1em 0;
+  }
+}
+
+input {
+  float: right;
+  border: #dadbdf 1px solid;
+  border-radius: 4px;
+}
+
+label {
+  float: left;
 }
 
 table {
@@ -35,6 +45,42 @@ table {
   }
 }
 
+ul {
+  padding: 0;
+
+  li {
+    text-align: center;
+    list-style-type: none;
+  }
+}
+
+.controls {
+  full {
+    margin: 1em 0;
+  }
+}
+
+.description {
+  font-weight: 600;
+}
+
+.gutter {
+  height: 1em;
+}
+
+.leaderboard, .contestants, .prizes {
+  background-color: #dadbdf;
+  border-radius: 10px;
+  margin: 2em 0;
+}
+
+.main {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 1em;
+}
+
 .messages {
   #headerbar {
     color: white;
@@ -46,38 +92,6 @@ table {
   border-radius: 4px;
 }
 
-label {
-  float: left;
-}
-
-input {
-  float: right;
-  border: #dadbdf 1px solid;
-  border-radius: 4px;
-}
-
-header {
-  background-color: #dadbdf;
-  border-radius: 10px;
-  margin: 2em 0;
-
-  .btn {
-    margin: 1em 0;
-  }
-}
-
-.leaderboard, .contestants, .prizes {
-  background-color: #dadbdf;
-  border-radius: 10px;
-  margin: 2em 0;
-}
-
-.controls {
-  full {
-    margin: 1em 0;
-  }
-}
-
 .prize {
   over-flow: hidden;
   display: block;
@@ -87,17 +101,4 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 10px;
-}
-
-.description {
-  font-weight: 600;
-}
-
-ul {
-  padding: 0;
-
-  li {
-    text-align: center;
-    list-style-type: none;
-  }
 }
