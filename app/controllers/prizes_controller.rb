@@ -27,7 +27,7 @@ class PrizesController < ApplicationController
   end
 
   def index
-    @prizes = Prize.where(game: Game.last)
+    @prizes = Prize.active(Game.last)
   end
 
   def destroy

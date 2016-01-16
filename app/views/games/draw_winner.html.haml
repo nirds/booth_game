@@ -1,11 +1,21 @@
 .row.main
   %header.col-xs-12
     -if @winner
-      %h1 The winner is:
+      %h1 The Winner Is:
       %p= "#{@winner.name} (#{@winner.twitter_handle})"
+    -if @prize
+      %h2 You Won This!
+      .col-xs-12.gutter
+      .col-xs-4
+      .prizes.col-xs-4
+        .row
+          .prize.col-xs-12{style: "background-image: url(#{@prize.image_url})"}
+      .col-xs-4
+      %p.description.col-xs-12= @prize.description
+      .col-xs-12.gutter
     -else
       %h1 Oops!
-      %p Either everyone's already won something, or you didn't have anyone enter the contest!
+      %p Everyone's already won something, you're out of prizes or you didn't have anyone enter the contest!
     .row
   = link_to(game_path(@game)) do
     .btn.btn-primary.col-xs-12 current game

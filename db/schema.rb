@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115220105) do
+ActiveRecord::Schema.define(version: 20160116003204) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160115220105) do
     t.string  "image_url"
     t.string  "description"
     t.integer "game_id"
+    t.boolean "won",         default: false
   end
 
   add_index "prizes", ["game_id"], name: "index_prizes_on_game_id"
