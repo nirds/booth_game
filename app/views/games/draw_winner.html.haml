@@ -17,5 +17,10 @@
       %h1 Oops!
       %p Everyone's already won something, you're out of prizes or you didn't have anyone enter the contest!
     .row
+  -if @winner
+    .col-xs-12.gutter
+    = link_to(draw_winner_path(id: @game.id)) do
+      .btn.btn-primary.col-xs-12 draw a winner
+  .col-xs-12.gutter
   = link_to(game_path(@game)) do
     .btn.btn-primary.col-xs-12 current game

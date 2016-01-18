@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20160116003204) do
     t.boolean "won",         default: false
   end
 
-  add_index "prizes", ["game_id"], name: "index_prizes_on_game_id"
+  add_index "prizes", ["game_id"], name: "index_prizes_on_game_id", using: :btree
 
   create_table "tickets", force: true do |t|
     t.integer  "game_contestant_id"

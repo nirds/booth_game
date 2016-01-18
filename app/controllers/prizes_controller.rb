@@ -27,7 +27,9 @@ class PrizesController < ApplicationController
   end
 
   def index
-    @prizes = Prize.active(Game.last)
+    @game = Game.find_by(id: params[:game_id])
+    @game ||= Game.last
+    @prizes = Prize.active(@game)
   end
 
   def destroy

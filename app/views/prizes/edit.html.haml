@@ -5,6 +5,12 @@
     .col-xs-12.gutter
   .col-xs-0.col-sm-2
   =render 'form'
-  =link_to
+  .col-xs-12.gutter
   = link_to(prize_path(id: @prize.id), method: :delete) do
     .btn.btn-primary.col-xs-12 delete
+  .col-xs-12.gutter
+  = link_to(game_path(@game)) do
+    .btn.btn-primary.col-xs-12 go to game
+  .col-xs-12.gutter
+  = link_to(prizes_path) do
+    .btn.btn-primary.col-xs-12 view prizes

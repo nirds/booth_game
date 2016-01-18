@@ -2,12 +2,12 @@
   = form_for @prize do |f|
     .col-xs-12
       = f.label :image_url
-      = f.text_field :image_url
+      = f.text_field :image_url, :placeholder => "max 255 characters"
     %br
     .col-xs-12.gutter
     .col-xs-12
       = f.label :description
-      = f.text_field :description
+      = f.text_field :description, :placeholder => "max 255 characters"
     %br
     -if @game
       = f.hidden_field :game_id, value: @game.id
