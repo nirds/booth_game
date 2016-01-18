@@ -34,6 +34,7 @@ class GamesController < ApplicationController
 
   def draw_winner
     @game = get_game
+    @game.update_score if params[:update_score]
     valid_game_contestants = GameContestant.where(is_drawing_winner: false)
     tickets = Ticket.where(game_id: @game.id, game_contestant: valid_game_contestants)
 

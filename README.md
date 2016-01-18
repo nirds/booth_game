@@ -22,10 +22,14 @@ After you sign in, you'll be returned to the home page where you can either star
 After creating the game - you'll want to list the prizes convention-goers could potentially win. Click on the "add a prize button" that with the bank of buttons at the bottom of the page. Fill in a url for an image of the prize as well as a short description. After submission you will be redirected back to the submission form to speed up the process of adding prizes. When you're finished, you can click "go to game" to return back to the game page or "view prizes" to see all of the prizes you've entered for this game.
 
 ### Running the game
+####Sign Up
 Have convention-goers sign up for the game from either the root page or from the game page by clicking on the "join the game" button. They must fill out all required fields in order to participate. Once they've done this, they must tweet at the games chosen twitter handle and inclued the game's chosen hash tag within that tweet to be entered to win. If they get retweeted, their chances to win increase dramatically.
 
+####Updating Scores
 Periodically, an admin must click on the "update game" button to ping the twitter API and update scores. The limit on this (at the time of this README's writing) is 60 per minute).
 
-At any point, an admin may select a winner out of the pool of contestants by clicking on the "draw a winner" button on the game's page. Doing so will display a contestant's name and twitter handle, as well as the prize that they have won. This removes the contestant from being in the running for future drawings and prevents the prize from being awarded again. If at any time you try to make a drawing when you don't have any potential winners or prizes, the game will inform you. I suggest not listing one of your prizes so it doesn't get awarded to a random winner but rather is awarded to the contestant with the most retweets.
+#### Selecting Winners
+At any point, an admin may select a winner out of the pool of contestants by clicking on the "draw a winner" button on the game's page (this will also update the scores by hitting the Twitter API). Doing so will display a contestant's name and twitter handle, as well as the prize that they have won. This removes the contestant from being in the running for future drawings and prevents the prize from being awarded again. An admin may contunie drawing winners from the show winner page, but the gem will no longer be updated when winners are selected from this page (this is for speed in the case that you want to draw a couple winners at the end). If at any time you try to make a drawing when you don't have any potential winners or prizes, the game will inform you. I suggest not listing one of your prizes so it doesn't get awarded to a random winner but rather is awarded to the contestant with the most retweets.
 
+#### Ending The Game
 To end a game an admin just needs to click on the "end game" button on the game's page.
