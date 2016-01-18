@@ -12,14 +12,19 @@
           %a.prize{href: edit_prize_path(c), style: "background-image: url(#{c.image_url})"}
         %td= c.description
   .col-sm-2
-  = link_to(root_path) do
-    .col-xs-12.gutter
-    .col-xs-2
-    .btn.btn-primary.col-xs-8 home
-    .col-xs-2
   -if @game
+    = link_to(new_prize_path(game_id: @game.id)) do
+      .col-xs-12.gutter
+      .col-xs-2
+      .btn.btn-primary.col-xs-8 add a prize
+      .col-xs-2
     = link_to(game_path(@game)) do
       .col-xs-12.gutter
       .col-xs-2
       .btn.btn-primary.col-xs-8 go to game
       .col-xs-2
+  = link_to(root_path) do
+    .col-xs-12.gutter
+    .col-xs-2
+    .btn.btn-primary.col-xs-8 home
+    .col-xs-2
