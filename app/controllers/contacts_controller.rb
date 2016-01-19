@@ -10,8 +10,12 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     sanitize_fields
     if @contact.save
-      if Game.last && !Game.last.ended_at
-        flash[:success] = "You're in, now tweet to win!"
+      game = Game.last
+      if game && !game.ended_at
+        contestant = GameContestant.create(contact: @contact, game: game)
+        Ticket.create(game_contestant: contestant, game: game)
+
+        flash[:success] = "You're in, now tweet ##{game.hash_tag} @#{game.twitter_handle} to win!"
         redirect_to game_path(Game.last)
       else
         flash[:success] = "We'll let you know when we have our next game!"
