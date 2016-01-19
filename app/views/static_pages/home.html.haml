@@ -10,7 +10,7 @@
     -if @game
       .col-xs-12.gutter
       = link_to(game_path(@game)) do
-        .btn.btn-primary.col-xs-12 current game
+        .btn.btn-primary.col-xs-12 view current game
     .col-xs-12.gutter
     = render 'devise/links'
   -else
@@ -19,10 +19,10 @@
       %p Where talking about us to your friends wins you stuff!
     -if @game
       = link_to({ controller: 'contacts', action: 'new' }) do
-        .btn.btn-primary.col-xs-12 join the game
+        .btn.btn-primary.col-xs-12 enter to win
       -if @game
         .col-xs-12.gutter
         = link_to(game_path(@game)) do
-          .btn.btn-primary.col-xs-12 current game
+          .btn.btn-primary.col-xs-12 view current game
     -else
       %p We don't have a game running currently. Catch us at the next con!
