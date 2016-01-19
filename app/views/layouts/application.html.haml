@@ -6,18 +6,14 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
   %body
-    .contianer
+    .container
       .row
         -unless flash.empty?
           .col-xs-12.gutter
-          .side-bar.col-sm-2
-          .messages.col-xs-8
+          .messages.col-xs-12.col-sm-8.col-sm-offset-2
             -flash.each do |name, msg|
               = content_tag :div, msg, class: name, id:"headerbar"
-          .side-bar.col-sm-2
           .col-xs-12.gutter
-        .side-bar.col-sm-2
-        .col-xs-12.col-sm-8
+        .col-xs-12.col-sm-8.col-sm-offset-2
           =yield
-        .side-bar.col-sm-2
         .col-xs-12.gutter
