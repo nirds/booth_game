@@ -14,6 +14,7 @@ gem 'devise'
 gem 'haml'
 gem 'twitter'
 gem 'figaro'
+gem "tweet-button"
 
 
 gem 'sdoc', '~> 0.4.0',          group: :doc

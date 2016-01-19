@@ -2,6 +2,7 @@
   %header.col-xs-12
     %h1 The Game Is On!
     %p= "Tweet ##{@game.hash_tag} @#{@game.twitter_handle} for a chance to win!"
+    %p= tweet_button text: "I'm Having fun playing @#{@game.twitter_handle}'s twitter game at ##{@game.hash_tag}! If you want to play sign up here: "
     .row
       .col-xs-3
       = link_to({ controller: 'contacts', action: 'new' }) do
