@@ -15,6 +15,7 @@ gem 'haml'
 gem 'twitter'
 gem 'figaro'
 gem "tweet-button"
+gem 'drip-ruby', require: 'drip'
 
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
