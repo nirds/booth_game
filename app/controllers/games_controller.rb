@@ -77,7 +77,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:hash_tag, :twitter_handle)
+    params.require(:game).permit(:hash_tag, :twitter_handle, :campaign)
   end
 
   def get_game

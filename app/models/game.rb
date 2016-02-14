@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   validates :twitter_handle, presence: true
   validates :hash_tag, presence: true
+  validate :campaign, presence: true
 
   has_many :tickets, dependent: :destroy
   has_many :prizes, dependent: :destroy
