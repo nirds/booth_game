@@ -54,7 +54,12 @@
         = link_to(end_game_path(id: @game.id)) do
           .btn.btn-primary.col-xs-12 end game
         .col-xs-12.gutter
+        = link_to(enroll_contestants_path(id: @game.id)) do
+          .btn.btn-primary.col-xs-12 enroll contestants
+        .col-xs-12.gutter
         = link_to(root_path) do
           .btn.btn-primary.col-xs-12 home
         .col-xs-12.gutter
-        = render 'devise/links'
+      = render 'devise/links'
+      .row
+        .col-xs-12.gutter

@@ -5,11 +5,11 @@ module GameUtilities
       client.create_or_update_subscribers(contestants_as_subscribers(game))
     end
 
-    def enroll_contestants_in_campaign(game, campaign_id)
+    def enroll_contestants_in_campaign(game)
       client = get_client
       subscribers = contestants_as_subscribers(game)
       subscribers.each do |s|
-        client.subscribe(s[:email], campaign_id)
+        client.subscribe(s[:email], game.campaign)
       end
     end
 

@@ -14,6 +14,12 @@ class Game < ActiveRecord::Base
     updater.update_game(id, tweets)
   end
 
+  def enroll_contestants
+    client = GameUtilities::DripApi.new
+    client.add_or_update_subscribers(self)
+    client.enroll_contestants_in_campaign(self)
+  end
+
   def select_winner(tickets)
     winning_ticket = tickets.sample
     winner = winning_ticket.game_contestant
