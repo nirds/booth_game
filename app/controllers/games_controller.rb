@@ -22,6 +22,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    pp params
     @game = get_game
     @most_retweeted = []
     @contacts = []
@@ -57,8 +58,15 @@ class GamesController < ApplicationController
   end
 
   def update_scores
-    get_game.update_score
-    redirect_to game_path(Game.last)
+    game = get_game
+    game.update_score
+    redirect_to game_path(game)
+  end
+
+  def enroll_contestants
+    game = get_game
+    game.enroll_contestants
+    redirect_to game_path(game)
   end
 
   private
@@ -69,7 +77,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:hash_tag, :twitter_handle)
+    params.require(:game).permit(:hash_tag, :twitter_handle, :campaign)
   end
 
   def get_game

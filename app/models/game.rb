@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   validates :twitter_handle, presence: true
   validates :hash_tag, presence: true
+  validate :campaign, presence: true
 
   has_many :tickets, dependent: :destroy
   has_many :prizes, dependent: :destroy
@@ -12,6 +13,12 @@ class Game < ActiveRecord::Base
     tweets =  client.get_tweets(twitter_handle, hash_tag)
     updater = GameUtilities::Updater.new
     updater.update_game(id, tweets)
+  end
+
+  def enroll_contestants
+    client = GameUtilities::DripApi.new
+    client.add_or_update_subscribers(self)
+    client.enroll_contestants_in_campaign(self)
   end
 
   def select_winner(tickets)
