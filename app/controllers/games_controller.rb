@@ -22,7 +22,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    pp params
     @game = get_game
     @most_retweeted = []
     @contacts = []
